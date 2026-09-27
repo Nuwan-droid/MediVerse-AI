@@ -1,359 +1,117 @@
+
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import {
-  ChevronDown,
-  ChevronUp,
-  CircleHelp,
-  Headphones,
-  MessageCircle,
-  ShieldCheck,
-  CalendarCheck,
-  LockKeyhole,
-  CreditCard,
-  Clock3,
-  ClipboardList,
-  Globe2,
-  HeartHandshake,
-  Mail,
-  Lightbulb,
-} from "lucide-react";
+import { ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
 
 const faqs = [
   {
-    question: "How do I create an account?",
+    question: "How much sleep do adults really need?",
     answer:
-      'You can create an account by clicking the "Sign Up" button on the top right corner of our website. Fill in your details, verify your email, and you are all set! It only takes a few minutes.',
-    icon: CircleHelp,
-    bg: "bg-blue-100",
-    color: "text-blue-600",
+      "Most adults need around 7–9 hours of sleep each night. A regular sleep schedule and a comfortable sleep environment can help improve sleep quality.",
   },
   {
-    question: "How can I book an appointment?",
+    question: "How much exercise should I get each week?",
     answer:
-      "You can book an appointment by visiting the Doctors section, selecting a doctor, and choosing an available date and time.",
-    icon: CalendarCheck,
-    bg: "bg-green-100",
-    color: "text-green-600",
+      "Health guidelines generally recommend at least 150 minutes of moderate activity per week, such as brisk walking, plus muscle-strengthening exercises on two or more days. Even short, regular walks make a real difference.",
   },
   {
-    question: "Is my personal information secure?",
+    question: "How do I know if I'm drinking enough water?",
     answer:
-      "We take privacy seriously and use appropriate security measures to help protect your personal information.",
-    icon: LockKeyhole,
-    bg: "bg-purple-100",
-    color: "text-purple-600",
+      "Your fluid needs depend on your activity, climate, and health. Drinking regularly throughout the day and checking that your urine is pale yellow can be helpful general guides.",
   },
   {
-    question: "Does the platform accept insurance?",
+    question: "How much sleep do adults really need?",
     answer:
-      "Insurance availability depends on the healthcare provider and service. Please check with the provider before booking.",
-    icon: CreditCard,
-    bg: "bg-red-100",
-    color: "text-red-500",
-  },
-  {
-    question: "Can I cancel or reschedule my appointment?",
-    answer:
-      "Yes. You can manage your appointment from your account. Cancellation and rescheduling may depend on the provider's policy.",
-    icon: Clock3,
-    bg: "bg-blue-100",
-    color: "text-blue-600",
-  },
-  {
-    question: "What should I bring to my appointment?",
-    answer:
-      "Bring any relevant medical information, identification, appointment details, and a list of medications if applicable.",
-    icon: ClipboardList,
-    bg: "bg-orange-100",
-    color: "text-orange-500",
-  },
-  {
-    question: "Do you offer services in multiple languages?",
-    answer:
-      "We aim to make our healthcare information accessible to users from different backgrounds and languages.",
-    icon: Globe2,
-    bg: "bg-green-100",
-    color: "text-green-600",
-  },
-  {
-    question: "How can I contact support?",
-    answer:
-      "You can contact our support team using the Contact Us option. Our support team will be happy to assist you.",
-    icon: HeartHandshake,
-    bg: "bg-purple-100",
-    color: "text-purple-600",
-  },
-];
-
-const helpItems = [
-  {
-    title: "Need More Help?",
-    description: "Our support team is ready to assist you 24/7.",
-    icon: Headphones,
-    bg: "bg-blue-100",
-    color: "text-blue-600",
-  },
-  {
-    title: "Quick & Easy",
-    description: "Find answers instantly, anytime, anywhere.",
-    icon: MessageCircle,
-    bg: "bg-green-100",
-    color: "text-green-600",
-  },
-  {
-    title: "Your Health Matters",
-    description: "We're here to support your well-being, every step of the way.",
-    icon: ShieldCheck,
-    bg: "bg-purple-100",
-    color: "text-purple-600",
-  },
-];
-
-const trustItems = [
-  {
-    title: "Trusted Care",
-    description: "Reliable and professional health support.",
-    icon: HeartHandshake,
-    bg: "bg-blue-100",
-    color: "text-blue-600",
-  },
-  {
-    title: "Easy Access",
-    description: "Get the information you need, when you need it.",
-    icon: ShieldCheck,
-    bg: "bg-green-100",
-    color: "text-green-600",
-  },
-  {
-    title: "Expert Support",
-    description: "Our team is always ready to help.",
-    icon: Headphones,
-    bg: "bg-purple-100",
-    color: "text-purple-600",
-  },
-  {
-    title: "Health for a Better You",
-    description: "Better information. Healthier decisions.",
-    icon: Globe2,
-    bg: "bg-blue-100",
-    color: "text-blue-600",
+      "Most adults need around 7–9 hours of sleep each night. Try to keep a consistent bedtime and wake-up time to support restful sleep.",
   },
 ];
 
 export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(1);
 
   return (
-    <section className="relative overflow-hidden bg-[#f7fbff] py-16 sm:py-20">
-      {/* Decorative background shapes */}
-      <div className="absolute left-0 bottom-0 h-32 w-[45%] rounded-tr-[100%] bg-teal-100/60" />
-      <div className="absolute right-0 bottom-0 h-32 w-[45%] rounded-tl-[100%] bg-blue-100/60" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        {/* Main FAQ area */}
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.5fr_0.9fr] lg:items-center">
-          
-          {/* LEFT SIDE */}
-          <div>
-            {/* Small label */}
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2">
-              <CircleHelp className="h-4 w-4 text-blue-600" />
-              <span className="text-xs font-bold text-blue-600">
-                Frequently Asked Questions
-              </span>
-            </div>
-
-            {/* Heading */}
-            <h2 className="text-4xl font-extrabold leading-tight text-blue-950 sm:text-5xl">
-              Got Questions?
-              <br />
-              <span className="text-teal-500">We&apos;ve Got Answers</span>
-            </h2>
-
-            {/* Description */}
-            <p className="mt-5 max-w-md text-sm leading-6 text-slate-600">
-              Find quick answers to the most common questions about our
-              services, tools, appointments, and more. If you don&apos;t see
-              your question here, feel free to contact us — we&apos;re always
-              here to help!
-            </p>
-
-            {/* Help items */}
-            <div className="mt-8 space-y-6">
-              {helpItems.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <div key={item.title} className="flex items-start gap-4">
-                    <div
-                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${item.bg}`}
-                    >
-                      <Icon className={`h-5 w-5 ${item.color}`} />
-                    </div>
-
-                    <div>
-                      <h3 className="text-sm font-bold text-blue-950">
-                        {item.title}
-                      </h3>
-
-                      <p className="mt-1 max-w-[210px] text-xs leading-5 text-slate-500">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+    <section id="faq" className="bg-[#f7f7f9] py-8 sm:py-10 lg:py-12">
+      <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-5 sm:px-8 lg:grid-cols-2 lg:items-start lg:gap-12">
+        {/* Left side */}
+        <div className="pt-1">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100">
+              <span className="h-2 w-2 rounded-full bg-blue-600" />
+            </span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-800">
+              FAQ
+            </span>
           </div>
 
-          {/* MIDDLE - FAQ LIST */}
-          <div className="rounded-2xl border border-blue-100 bg-white p-4 shadow-[0_10px_40px_rgba(30,100,180,0.08)] sm:p-5">
-            <div className="space-y-2">
-              {faqs.map((faq, index) => {
-                const Icon = faq.icon;
-                const isOpen = openIndex === index;
+          <h2 className="max-w-md text-4xl font-bold leading-[1.15] tracking-tight text-black sm:text-[44px]">
+            Frequently asked
+            <br />
+            Question
+          </h2>
 
-                return (
-                  <div
-                    key={faq.question}
-                    className="overflow-hidden rounded-xl border border-blue-100 bg-white"
-                  >
-                    {/* Question */}
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setOpenIndex(isOpen ? -1 : index)
-                      }
-                      className="flex w-full items-center gap-3 px-4 py-3 text-left transition hover:bg-blue-50/50"
-                    >
-                      {/* Icon */}
-                      <div
-                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${faq.bg}`}
-                      >
-                        <Icon className={`h-4 w-4 ${faq.color}`} />
-                      </div>
+          <p className="mt-5 max-w-md text-sm leading-[1.25] text-slate-500 sm:text-base">
+            Find quick answer to common question below.
+            <br className="hidden sm:block" />
+            Need more help? contact us anytime
+          </p>
 
-                      {/* Question */}
-                      <span className="flex-1 text-xs font-bold text-blue-950 sm:text-sm">
-                        {faq.question}
-                      </span>
-
-                      {/* Arrow */}
-                      {isOpen ? (
-                        <ChevronUp className="h-4 w-4 shrink-0 text-blue-600" />
-                      ) : (
-                        <ChevronDown className="h-4 w-4 shrink-0 text-blue-600" />
-                      )}
-                    </button>
-
-                    {/* Answer */}
-                    {isOpen && (
-                      <div className="px-4 pb-4 pl-[60px]">
-                        <div className="rounded-lg bg-blue-50 px-4 py-3">
-                          <p className="text-xs leading-5 text-slate-500">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* View all FAQs */}
-            <div className="mt-4 flex justify-center">
-              <button
-                type="button"
-                className="rounded-full bg-blue-50 px-5 py-2 text-xs font-semibold text-blue-600 transition hover:bg-blue-100"
-              >
-                View All FAQs →
-              </button>
-            </div>
-          </div>
-
-          {/* RIGHT SIDE */}
-          <div className="relative flex flex-col items-center">
-            
-            {/* Doctor image */}
-            <div className="relative h-[350px] w-full max-w-[300px]">
-              <Image
-                src="/doctor image.png"
-                alt="Healthcare professional"
-                fill
-                className="object-contain"
-              />
-
-              {/* Question bubble */}
-              <div className="absolute right-0 top-5 flex h-16 w-20 items-center justify-center rounded-[50%] bg-blue-200 shadow-sm">
-                <span className="text-3xl font-bold text-white">?</span>
-              </div>
-            </div>
-
-            {/* Still have questions card */}
-            <div className="relative -mt-16 w-full max-w-[260px] rounded-[30px] border border-blue-100 bg-white/95 p-6 shadow-lg">
-              <div className="mb-3 flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-100">
-                  <Lightbulb className="h-5 w-5 text-blue-600" />
-                </div>
-
-                <h3 className="font-handwriting text-xl font-bold italic text-blue-500">
-                  Still have
-                  <br />
-                  questions?
-                </h3>
-              </div>
-
-              <p className="text-xs leading-5 text-slate-500">
-                Our friendly support team is here to help you.
-              </p>
-
-              <button
-                type="button"
-                className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-blue-700"
-              >
-                <Mail className="h-3.5 w-3.5" />
-                Contact Us
-                <span>→</span>
-              </button>
-            </div>
-          </div>
+          <a
+            href="mailto:"
+            className="mt-6 inline-flex h-[52px] items-center gap-4 rounded-full bg-blue-600 py-1 pl-6 pr-1 text-sm font-medium text-white transition hover:bg-blue-700"
+          >
+            Send Email
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-950">
+              <ArrowRight className="h-5 w-5" />
+            </span>
+          </a>
         </div>
 
-        {/* BOTTOM TRUST BAR */}
-        <div className="mt-16 border-t border-blue-100 pt-8">
-          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
-            {trustItems.map((item, index) => {
-              const Icon = item.icon;
+        {/* Right side: FAQ accordion */}
+        <div className="space-y-2">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index;
 
-              return (
-                <div
-                  key={item.title}
-                  className={`flex items-center gap-3 px-4 lg:px-7 ${
-                    index !== 0 ? "lg:border-l lg:border-blue-100" : ""
-                  }`}
+            return (
+              <div
+                key={`${faq.question}-${index}`}
+                className={`overflow-hidden rounded-[28px] border-0 outline-none transition-colors duration-200 ${
+                  isOpen ? "bg-white" : "bg-[#e2edf6]"
+                }`}
+              >
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                  className="flex min-h-[52px] w-full items-center justify-between gap-3 border-0 px-4 py-1.5 text-left outline-none focus:outline-none focus-visible:outline-none focus-visible:ring-0 sm:px-5"
                 >
-                  <div
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full ${item.bg}`}
+                  <span className="text-[11px] font-medium text-slate-950 sm:text-xs">
+                    {faq.question}
+                  </span>
+
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
+                      isOpen ? "bg-[#e2edf6]" : "bg-white"
+                    }`}
                   >
-                    <Icon className={`h-5 w-5 ${item.color}`} />
-                  </div>
+                    {isOpen ? (
+                      <ChevronUp className="h-4 w-4 text-slate-950" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4 text-slate-950" />
+                    )}
+                  </span>
+                </button>
 
-                  <div>
-                    <h3 className="text-xs font-bold text-blue-950">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-1 text-[10px] leading-4 text-slate-500">
-                      {item.description}
+                {isOpen && (
+                  <div className="px-4 pb-5 pr-12 sm:px-5 sm:pb-5">
+                    <p className="max-w-xl text-[9px] leading-[1.5] text-slate-500 sm:text-[10px]">
+                      {faq.answer}
                     </p>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

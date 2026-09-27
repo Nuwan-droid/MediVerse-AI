@@ -68,14 +68,7 @@ export function FeaturesBottom() {
         })}
       </div>
 
-      {/* Decorative bottom wave */}
-      <div className="relative h-10 overflow-hidden">
-        <div className="absolute -bottom-7 left-[-5%] h-14 w-[45%] -rotate-6 rounded-[50%] bg-teal-200/70" />
-        <div className="absolute -bottom-8 left-[-8%] h-12 w-[38%] -rotate-6 rounded-[50%] bg-teal-400/60" />
 
-        <div className="absolute -bottom-7 right-[-5%] h-14 w-[45%] rotate-6 rounded-[50%] bg-teal-200/70" />
-        <div className="absolute -bottom-8 right-[-8%] h-12 w-[38%] rotate-6 rounded-[50%] bg-teal-400/60" />
-      </div>
     </section>
   );
 }
