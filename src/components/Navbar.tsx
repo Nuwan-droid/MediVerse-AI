@@ -1,11 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const navLinks = [
     { label: "Home", href: "/" },
@@ -31,7 +36,12 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[12px] font-normal text-slate-500 transition-colors hover:text-black"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`text-[12px] transition-colors hover:text-black ${
+                  isActive(link.href)
+                    ? "font-medium text-black"
+                    : "font-normal text-slate-500"
+                }`}
               >
                 {link.label}
               </Link>
@@ -63,7 +73,12 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-md px-3 py-3 text-sm text-slate-700 hover:bg-slate-100"
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={`rounded-md px-3 py-3 text-sm hover:bg-slate-100 ${
+                    isActive(link.href)
+                      ? "bg-slate-100 font-medium text-black"
+                      : "text-slate-700"
+                  }`}
                 >
                   {link.label}
                 </Link>
