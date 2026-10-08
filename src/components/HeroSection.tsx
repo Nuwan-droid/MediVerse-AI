@@ -5,7 +5,7 @@ import { Search, ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative h-[350px] w-full overflow-hidden">
+    <section className="relative h-[550px] w-full overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
