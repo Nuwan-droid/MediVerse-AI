@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mediverse — Everything about health in one place",
+  title: "Good For Health ",
   description: "Trusted information, smart tools, and personalized guidance for a healthier you.",
 };
 
