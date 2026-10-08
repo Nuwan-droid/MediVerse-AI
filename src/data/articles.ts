@@ -300,6 +300,66 @@ export const articles: Article[] = [
     readTime: 7,
     author: AUTHOR_EVAN,
   },
+  {
+    slug: "how-wearables-can-support-diabetes-care",
+    title: "How Wearable Devices Can Support Diabetes Care",
+    excerpt:
+      "From heart-rate tracking to activity reminders, wearables can help people with diabetes spot patterns and stay on track.",
+    category: "Diabetes",
+    image: "/watch.png",
+    publishedAt: "2026-09-18",
+    updatedAt: "2026-09-18",
+    readTime: 5,
+    author: AUTHOR_EVAN,
+  },
+  {
+    slug: "mindful-breathing-a-five-minute-reset",
+    title: "Mindful Breathing: A Five-Minute Reset for Busy Days",
+    excerpt:
+      "A simple breathing routine you can do anywhere to lower stress and bring your focus back.",
+    category: "Mental Health",
+    image: "/sunset.png",
+    publishedAt: "2026-09-17",
+    updatedAt: "2026-09-17",
+    readTime: 4,
+    author: AUTHOR_EVAN,
+  },
+  {
+    slug: "heart-healthy-snacks-to-keep-on-hand",
+    title: "Heart-Healthy Snacks to Keep on Hand",
+    excerpt:
+      "Easy, nourishing snack ideas that keep energy steady and support a healthier heart between meals.",
+    category: "Nutrition",
+    image: "/articles/nutrition-balanced.jpg",
+    publishedAt: "2026-09-16",
+    updatedAt: "2026-09-16",
+    readTime: 4,
+    author: AUTHOR_EVAN,
+  },
+  {
+    slug: "how-to-stay-active-when-you-work-at-a-desk",
+    title: "How to Stay Active When You Work at a Desk",
+    excerpt:
+      "Short movement breaks and small routine changes that counter the effects of sitting for long periods.",
+    category: "Fitness",
+    image: "/articles/fitness-walking.jpg",
+    publishedAt: "2026-09-14",
+    updatedAt: "2026-09-14",
+    readTime: 5,
+    author: AUTHOR_EVAN,
+  },
+  {
+    slug: "building-a-simple-morning-routine-that-sticks",
+    title: "Building a Simple Morning Routine That Sticks",
+    excerpt:
+      "Start the day well with a few realistic habits that support energy, mood and focus.",
+    category: "Healthy Living",
+    image: "/articles/runner-outdoor.jpg",
+    publishedAt: "2026-09-12",
+    updatedAt: "2026-09-12",
+    readTime: 5,
+    author: AUTHOR_EVAN,
+  },
 ];
 
 /* ───────────────────────── Selectors ───────────────────────── */
@@ -308,6 +368,7 @@ export const HERO_SLUG = "small-daily-habits-that-can-improve-your-health";
 export const FEATURED_SLUGS = [
   "top-10-foods-to-avoid-with-diabetes",
   "diabetes-and-exercise-getting-started",
+  "how-wearables-can-support-diabetes-care",
 ];
 export const LATEST_SLUGS = [
   "how-better-sleep-can-improve-your-day",
@@ -315,6 +376,10 @@ export const LATEST_SLUGS = [
   "simple-ways-to-manage-everyday-stress",
   "why-drinking-enough-water-is-important",
   "easy-exercises-you-can-do-at-home",
+  "mindful-breathing-a-five-minute-reset",
+  "heart-healthy-snacks-to-keep-on-hand",
+  "how-to-stay-active-when-you-work-at-a-desk",
+  "building-a-simple-morning-routine-that-sticks",
 ];
 
 export function getArticle(slug: string) {

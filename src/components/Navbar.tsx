@@ -24,26 +24,32 @@ export function Navbar() {
         <div className="flex h-[64px] items-center justify-between">
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            <span className="text-[12px] font-extrabold tracking-tight text-black">
+            <span className="text-[24px] font-black tracking-tight text-black sm:text-[26px]">
               <span className="text-blue-500">G</span>ood for Health
               <span className="text-blue-500">•</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-7 sm:flex">
+          <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-9 sm:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`text-[12px] transition-colors hover:text-black ${
+                className={`group relative py-1 text-[15px] transition-colors hover:text-black ${
                   isActive(link.href)
-                    ? "font-medium text-black"
+                    ? "font-bold text-black"
                     : "font-normal text-slate-500"
                 }`}
               >
                 {link.label}
+                <span
+                  aria-hidden
+                  className={`absolute -bottom-0.5 left-0 h-[2px] w-full origin-left rounded-full bg-black transition-transform duration-300 ease-out group-hover:scale-x-100 ${
+                    isActive(link.href) ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
               </Link>
             ))}
           </div>

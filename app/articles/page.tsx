@@ -60,12 +60,12 @@ export default async function ArticlesPage({
               <CategorySection
                 id="nutrition"
                 title="Nutrition"
-                articles={getArticlesByCategory("nutrition")}
+                articles={getArticlesByCategory("nutrition").slice(0, 3)}
               />
               <CategorySection
                 id="fitness"
                 title="Fitness"
-                articles={getArticlesByCategory("fitness")}
+                articles={getArticlesByCategory("fitness").slice(0, 3)}
               />
             </div>
           </>

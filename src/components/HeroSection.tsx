@@ -30,7 +30,8 @@ export function HeroSection() {
 
           <p className="mt-4 max-w-[410px] text-[13px] leading-[1.3] text-slate-800 sm:text-sm">
             Understand diseases, find the right care and track your
-            wellbeing — trusted health information, tools and doctors,
+            wellbeing 
+            trusted health information, tools and doctors,
             connected in one place.
           </p>
 

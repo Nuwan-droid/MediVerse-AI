@@ -3,7 +3,6 @@ import { CATEGORY_NAV } from "@/data/articles";
 import { cn } from "@/lib/utils";
 
 interface ArticleCategoryNavProps {
-  /** Category slug of the active tab. `undefined` highlights "Home". */
   active?: string;
 }
 
@@ -17,7 +16,7 @@ const tabs = [
   { label: "Latest", slug: "latest" as string | undefined, href: "/articles#latest" },
 ];
 
-/** Main navigation bar for the Articles section (sits below the global header). */
+
 export function ArticleCategoryNav({ active }: ArticleCategoryNavProps) {
   return (
     <div className="sticky top-[64px] z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -36,7 +35,7 @@ export function ArticleCategoryNav({ active }: ArticleCategoryNavProps) {
                 href={tab.href}
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "relative flex items-center whitespace-nowrap px-4 py-3.5 text-[11px] font-medium transition-colors sm:px-5",
+                  "relative flex items-center whitespace-nowrap px-4 py-3.5 text-[14px] font-medium transition-colors sm:px-5",
                   isActive
                     ? "text-slate-950"
                     : "text-slate-600 hover:text-slate-950"

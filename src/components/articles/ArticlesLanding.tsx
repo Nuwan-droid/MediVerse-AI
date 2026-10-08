@@ -14,9 +14,9 @@ import {
 function FeaturedArticles() {
   const featured = getArticlesBySlugs(FEATURED_SLUGS);
   return (
-    <section aria-label="Featured articles" className="flex flex-col gap-5">
+    <section aria-label="Featured articles" className="flex h-full flex-col gap-5">
       {featured.map((article, i) => (
-        <div key={article.slug} className="flex-1">
+        <div key={article.slug} className="flex min-h-[220px] flex-1 *:w-full">
           <ArticleCard article={article} variant="feature" priority={i === 0} />
         </div>
       ))}
@@ -61,16 +61,20 @@ function HeroArticle() {
 function LatestList() {
   const latest = getArticlesBySlugs(LATEST_SLUGS);
   return (
-    <section id="latest" aria-labelledby="latest-heading" className="scroll-mt-32">
+    <section
+      id="latest"
+      aria-labelledby="latest-heading"
+      className="flex h-full scroll-mt-32 flex-col"
+    >
       <h2
         id="latest-heading"
         className="border-b border-slate-300 pb-2 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-900"
       >
         Latest
       </h2>
-      <ul className="divide-y divide-slate-200">
+      <ul className="flex flex-1 flex-col divide-y divide-slate-200">
         {latest.map((article) => (
-          <li key={article.slug} className="py-4">
+          <li key={article.slug} className="flex flex-1 items-center py-3 *:w-full">
             <ArticleCard article={article} variant="compact" />
           </li>
         ))}
@@ -82,16 +86,21 @@ function LatestList() {
 export function ArticlesLanding() {
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_1px_minmax(0,2.3fr)_1px_minmax(0,1.15fr)] lg:gap-6">
-      <div className="order-2 lg:order-1">
-        <FeaturedArticles />
+      {/* Side columns are absolutely positioned on desktop so only the hero column sets the row height. */}
+      <div className="relative order-2 lg:order-1">
+        <div className="hide-scrollbar lg:absolute lg:inset-0 lg:overflow-y-auto">
+          <FeaturedArticles />
+        </div>
       </div>
       <span aria-hidden className="order-2 hidden bg-slate-200 lg:block" />
       <div className="order-1 lg:order-3">
         <HeroArticle />
       </div>
       <span aria-hidden className="order-4 hidden bg-slate-200 lg:block" />
-      <div className="order-3 lg:order-5">
-        <LatestList />
+      <div className="relative order-3 lg:order-5">
+        <div className="hide-scrollbar lg:absolute lg:inset-0 lg:overflow-y-auto">
+          <LatestList />
+        </div>
       </div>
     </div>
   );
