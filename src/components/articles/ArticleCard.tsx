@@ -29,12 +29,6 @@ function ArrowButton({ className }: { className?: string }) {
   );
 }
 
-/**
- * Common article card, built on the shared `Card` primitive.
- * - `feature`: image on top + info panel (Featured column)
- * - `compact`: title/date with thumbnail (Latest column)
- * - `grid`:    full card with image, excerpt and author footer (category sections)
- */
 export function ArticleCard({
   article,
   variant = "grid",
