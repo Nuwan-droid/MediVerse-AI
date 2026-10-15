@@ -5,8 +5,6 @@ import type { NewsArticle } from "@/data/news";
 
 interface NewsCardProps {
   item: NewsArticle;
-  /** Dark highlighted style, used for the lead card on the news listing. */
-  featured?: boolean;
   /** Image `sizes` hint; defaults to the sidebar width. */
   sizes?: string;
 }
@@ -14,16 +12,11 @@ interface NewsCardProps {
 /** News card, built on the shared `Card` primitive. */
 export function NewsCard({
   item,
-  featured = false,
   sizes = "(max-width: 1024px) 100vw, 360px",
 }: NewsCardProps) {
   return (
     <Link href={`/news/${item.slug}`} className="group block h-full">
-      <Card
-        className={`h-full gap-0 rounded-2xl p-2 shadow-sm ring-0 transition-shadow duration-300 hover:shadow-md ${
-          featured ? "bg-[#202124]" : "bg-white"
-        }`}
-      >
+      <Card className="h-full gap-0 rounded-2xl bg-white p-2 shadow-sm ring-0 transition-shadow duration-300 hover:shadow-md">
         <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-200">
           <Image
             src={item.image}
@@ -37,20 +30,10 @@ export function NewsCard({
           </span>
         </div>
         <div className="px-1 pb-2 pt-3">
-          <h3
-            className={`line-clamp-2 text-[13px] font-semibold leading-[1.35] transition-colors ${
-              featured
-                ? "text-white group-hover:text-blue-300"
-                : "text-slate-950 group-hover:text-blue-700"
-            }`}
-          >
+          <h3 className="line-clamp-2 text-[13px] font-semibold leading-[1.35] text-slate-950 transition-colors group-hover:text-blue-700">
             {item.title}
           </h3>
-          <p
-            className={`mt-1 line-clamp-2 text-[10px] leading-[1.5] ${
-              featured ? "text-white/75" : "text-slate-500"
-            }`}
-          >
+          <p className="mt-1 line-clamp-2 text-[11px] leading-[1.5] text-slate-500 sm:text-xs">
             {item.summary}
           </p>
         </div>
