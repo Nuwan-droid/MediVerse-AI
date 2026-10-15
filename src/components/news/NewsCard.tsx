@@ -3,17 +3,33 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import type { NewsArticle } from "@/data/news";
 
-/** Sidebar news card, built on the shared `Card` primitive. */
-export function NewsCard({ item }: { item: NewsArticle }) {
+interface NewsCardProps {
+  item: NewsArticle;
+  /** Dark highlighted style, used for the lead card on the news listing. */
+  featured?: boolean;
+  /** Image `sizes` hint; defaults to the sidebar width. */
+  sizes?: string;
+}
+
+/** News card, built on the shared `Card` primitive. */
+export function NewsCard({
+  item,
+  featured = false,
+  sizes = "(max-width: 1024px) 100vw, 360px",
+}: NewsCardProps) {
   return (
-    <Link href={`/news/${item.slug}`} className="group block">
-      <Card className="gap-0 rounded-2xl bg-white p-2 shadow-sm ring-0 transition-shadow duration-300 hover:shadow-md">
+    <Link href={`/news/${item.slug}`} className="group block h-full">
+      <Card
+        className={`h-full gap-0 rounded-2xl p-2 shadow-sm ring-0 transition-shadow duration-300 hover:shadow-md ${
+          featured ? "bg-[#202124]" : "bg-white"
+        }`}
+      >
         <div className="relative aspect-[16/9] overflow-hidden rounded-xl bg-slate-200">
           <Image
             src={item.image}
             alt={item.title}
             fill
-            sizes="(max-width: 1024px) 100vw, 360px"
+            sizes={sizes}
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <span className="absolute left-3 top-3 rounded-full bg-blue-600 px-3 py-1 text-[10px] font-medium text-white">
@@ -21,10 +37,20 @@ export function NewsCard({ item }: { item: NewsArticle }) {
           </span>
         </div>
         <div className="px-1 pb-2 pt-3">
-          <h3 className="line-clamp-2 text-[13px] font-semibold leading-[1.35] text-slate-950 transition-colors group-hover:text-blue-700">
+          <h3
+            className={`line-clamp-2 text-[13px] font-semibold leading-[1.35] transition-colors ${
+              featured
+                ? "text-white group-hover:text-blue-300"
+                : "text-slate-950 group-hover:text-blue-700"
+            }`}
+          >
             {item.title}
           </h3>
-          <p className="mt-1 line-clamp-2 text-[10px] leading-[1.5] text-slate-500">
+          <p
+            className={`mt-1 line-clamp-2 text-[10px] leading-[1.5] ${
+              featured ? "text-white/75" : "text-slate-500"
+            }`}
+          >
             {item.summary}
           </p>
         </div>

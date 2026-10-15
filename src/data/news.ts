@@ -3,7 +3,8 @@ export type NewsCategoryName =
   | "Mental Health"
   | "Wellness"
   | "Nutrition"
-  | "Heart Health";
+  | "Heart Health"
+  | "Sleep";
 
 export interface NewsArticle {
   slug: string;
@@ -20,7 +21,67 @@ export interface NewsArticle {
   body: string[];
 }
 
+/**
+ * Listing order — the news landing page renders this array top to bottom
+ * (first page of 9, then "Load more" reveals the rest).
+ */
 export const news: NewsArticle[] = [
+  {
+    slug: "build-a-better-bedtime-routine",
+    category: "Sleep",
+    title: "Build a Better Bedtime Routine for Deeper, More Restful Sleep",
+    summary:
+      "Sleep specialists share the evening habits that help the body wind down and make waking up easier.",
+    image: "/sleeping.png",
+    authors: ["Dr. Maya Thompson"],
+    publishedAt: "2026-10-05",
+    readTime: 5,
+    comments: 26,
+    views: 301,
+    shares: 74,
+    body: [
+      "A consistent bedtime routine signals to the body that it is time to slow down. Dimming the lights, putting screens away and doing something calm, such as reading or gentle stretching, can make it easier to fall asleep.",
+      "Sleep specialists suggest keeping the same wake-up time every day, even at weekends, and keeping the bedroom cool, dark and quiet. Heavy meals and caffeine late in the day are common causes of restless nights.",
+      "If trouble sleeping continues for several weeks or affects your daily life, speak with a healthcare professional.",
+    ],
+  },
+  {
+    slug: "the-plate-method-a-simple-way-to-balance-meals",
+    category: "Nutrition",
+    title: "The Plate Method: A Simple Way to Build a Balanced Meal",
+    summary:
+      "Dietitians say picturing your plate in simple portions can make healthy eating easier without counting calories.",
+    image: "/articles/nutrition-choices.jpg",
+    authors: ["Evan Rose"],
+    publishedAt: "2026-09-28",
+    readTime: 4,
+    comments: 29,
+    views: 410,
+    shares: 102,
+    body: [
+      "The plate method is a visual guide: fill half your plate with vegetables and fruit, a quarter with whole grains and a quarter with lean protein. It takes no counting and no special products.",
+      "Small swaps carry most of the benefit — whole grains in place of refined ones, water instead of sugary drinks, and beans, fish or eggs as everyday protein.",
+      "Anyone managing a medical condition should talk with their doctor or a registered dietitian before making a major change to their diet.",
+    ],
+  },
+  {
+    slug: "wearables-help-people-track-heart-health",
+    category: "Heart Health",
+    title: "Wearables Help People Keep an Eye on Heart Health",
+    summary:
+      "Smartwatches that track heart rate can prompt earlier conversations with doctors, but experts urge caution.",
+    image: "/watch.png",
+    authors: ["Dr. Maya Thompson", "Evan Rose"],
+    publishedAt: "2026-09-26",
+    readTime: 5,
+    comments: 12,
+    views: 198,
+    shares: 45,
+    body: [
+      "Wearable devices can measure heart rate, activity and sleep around the clock, giving people a clearer picture of their daily habits.",
+      "Cardiologists say these tools are useful for spotting trends, but they are not diagnostic devices. Unusual readings or symptoms such as chest pain or dizziness should always be assessed by a medical professional.",
+    ],
+  },
   {
     slug: "group-workouts-boost-heart-health-and-mood",
     category: "Fitness",
@@ -81,40 +142,112 @@ export const news: NewsArticle[] = [
     ],
   },
   {
-    slug: "the-plate-method-a-simple-way-to-balance-meals",
-    category: "Nutrition",
-    title: "The Plate Method: A Simple Way to Build a Balanced Meal",
+    slug: "daily-walking-is-one-of-the-simplest-ways-to-stay-active",
+    category: "Fitness",
+    title: "Daily Walking Is One of the Simplest Ways to Stay Active",
     summary:
-      "Dietitians say picturing your plate in simple portions can make healthy eating easier without counting calories.",
-    image: "/articles/nutrition-choices.jpg",
+      "A regular brisk walk can support your heart, mood and energy levels without any special equipment.",
+    image: "/articles/fitness-walking.jpg",
     authors: ["Evan Rose"],
-    publishedAt: "2026-09-28",
+    publishedAt: "2026-10-03",
     readTime: 4,
-    comments: 29,
-    views: 410,
-    shares: 102,
+    comments: 15,
+    views: 224,
+    shares: 51,
     body: [
-      "The plate method is a visual guide: fill half your plate with vegetables and fruit, a quarter with whole grains and a quarter with lean protein. It takes no counting and no special products.",
-      "Small swaps carry most of the benefit — whole grains in place of refined ones, water instead of sugary drinks, and beans, fish or eggs as everyday protein.",
-      "Anyone managing a medical condition should talk with their doctor or a registered dietitian before making a major change to their diet.",
+      "Walking needs no gym, no kit and no booking. A brisk walk most days of the week is an easy way to build towards the 150 minutes of moderate activity recommended for most adults.",
+      "Walking after meals, taking calls on the move and choosing stairs over lifts all add up. Start with a pace and distance that feels comfortable and increase gradually.",
+      "Anyone with a medical condition should check with their doctor before starting a new exercise routine.",
     ],
   },
   {
-    slug: "wearables-help-people-track-heart-health",
-    category: "Heart Health",
-    title: "Wearables Help People Keep an Eye on Heart Health",
+    slug: "staying-hydrated-why-water-matters",
+    category: "Wellness",
+    title: "Staying Hydrated: Why Water Matters for Energy and Focus",
     summary:
-      "Smartwatches that track heart rate can prompt earlier conversations with doctors, but experts urge caution.",
-    image: "/watch.png",
-    authors: ["Dr. Maya Thompson", "Evan Rose"],
-    publishedAt: "2026-09-26",
-    readTime: 5,
-    comments: 12,
-    views: 198,
-    shares: 45,
+      "Even mild dehydration can affect concentration and mood. Here are easy ways to drink enough through the day.",
+    image: "/articles/hydration-water.jpg",
+    authors: ["Dr. Maya Thompson"],
+    publishedAt: "2026-09-29",
+    readTime: 3,
+    comments: 9,
+    views: 187,
+    shares: 38,
     body: [
-      "Wearable devices can measure heart rate, activity and sleep around the clock, giving people a clearer picture of their daily habits.",
-      "Cardiologists say these tools are useful for spotting trends, but they are not diagnostic devices. Unusual readings or symptoms such as chest pain or dizziness should always be assessed by a medical professional.",
+      "Water supports digestion, temperature control and concentration. Feeling tired, getting headaches or having dark urine can be signs you need to drink more.",
+      "Keep a bottle within reach, drink a glass with each meal and choose water-rich foods such as fruit and vegetables. Needs vary with activity, climate and health, so listen to your body.",
+    ],
+  },
+  {
+    slug: "simple-daily-habits-for-better-mental-wellbeing",
+    category: "Mental Health",
+    title: "Simple Daily Habits That Support Better Mental Wellbeing",
+    summary:
+      "Small routines such as time outdoors, regular breaks and staying connected can help you manage stress.",
+    image: "/articles/hero-wellness.jpg",
+    authors: ["Dr. Maya Thompson"],
+    publishedAt: "2026-09-27",
+    readTime: 4,
+    comments: 20,
+    views: 259,
+    shares: 60,
+    body: [
+      "Looking after your mental wellbeing does not have to mean big changes. Time outdoors, regular movement, enough sleep and meaningful time with friends all help the mind cope with stress.",
+      "Try short breaks during the day, set realistic goals and notice what helps you feel calm. If low mood or anxiety persists, reach out to a qualified professional.",
+    ],
+  },
+  {
+    slug: "eating-more-fibre-for-gut-and-heart-health",
+    category: "Nutrition",
+    title: "Eating More Fibre: Easy Ways to Support Gut and Heart Health",
+    summary:
+      "Whole grains, beans, fruit and vegetables make it easy to add fibre to everyday meals.",
+    image: "/articles/nutrition-balanced.jpg",
+    authors: ["Evan Rose"],
+    publishedAt: "2026-09-25",
+    readTime: 4,
+    comments: 11,
+    views: 233,
+    shares: 47,
+    body: [
+      "Fibre helps keep digestion regular and is linked with better heart health. Most adults eat less than the recommended amount.",
+      "Swap refined grains for wholegrain versions, add beans or lentils to soups and salads, and keep the skin on fruit and vegetables where you can. Increase fibre gradually and drink plenty of water.",
+    ],
+  },
+  {
+    slug: "strength-training-twice-a-week",
+    category: "Fitness",
+    title: "Strength Training Twice a Week Helps You Stay Active as You Age",
+    summary:
+      "Two short sessions a week can help maintain muscle, bone strength and independence.",
+    image: "/articles/fitness-strength.jpg",
+    authors: ["Evan Rose", "Dr. Maya Thompson"],
+    publishedAt: "2026-09-24",
+    readTime: 5,
+    comments: 14,
+    views: 205,
+    shares: 42,
+    body: [
+      "Muscle and bone strength naturally decline with age, but regular strength training can slow the process. Health guidelines recommend muscle-strengthening activity on at least two days a week.",
+      "Bodyweight exercises, resistance bands and light weights are all effective. Focus on good form, rest between sessions and build up gradually. Check with your doctor if you have a health condition.",
+    ],
+  },
+  {
+    slug: "why-regular-cardio-is-good-for-your-heart",
+    category: "Heart Health",
+    title: "Why Regular Cardio Is Good for Your Heart",
+    summary:
+      "Running, cycling or swimming a few times a week can help keep your heart and circulation healthy.",
+    image: "/articles/runner-outdoor.jpg",
+    authors: ["Dr. Maya Thompson"],
+    publishedAt: "2026-09-22",
+    readTime: 5,
+    comments: 17,
+    views: 268,
+    shares: 55,
+    body: [
+      "Cardio exercise makes the heart work harder, which over time helps it pump more efficiently and supports healthy blood pressure and cholesterol levels.",
+      "Choose an activity you enjoy and aim for regular sessions that raise your breathing and heart rate. If you have chest pain, dizziness or a heart condition, speak with your doctor before exercising.",
     ],
   },
 ];
