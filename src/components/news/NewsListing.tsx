@@ -30,11 +30,10 @@ export function NewsListing({ items }: { items: NewsArticle[] }) {
         aria-label="Health news articles"
         className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {shown.map((item, index) => (
+        {shown.map((item) => (
           <NewsCard
             key={item.slug}
             item={item}
-            featured={index === 0}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ))}
